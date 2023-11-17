@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
-
+HELP.md
+mvnw
+mvnw.cmd
+.mvn
 # Log file
 *.log
 
