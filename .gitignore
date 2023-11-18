@@ -4,6 +4,7 @@ HELP.md
 mvnw
 mvnw.cmd
 .mvn
+src/main/resources/application.properties
 # Log file
 *.log
 
