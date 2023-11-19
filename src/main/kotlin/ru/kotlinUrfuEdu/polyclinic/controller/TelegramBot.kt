@@ -2,6 +2,7 @@ package ru.kotlinUrfuEdu.polyclinic.controller
 
 import lombok.extern.slf4j.Slf4j
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands
@@ -13,18 +14,27 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 import ru.kotlinUrfuEdu.polyclinic.config.BotConfig
 import ru.kotlinUrfuEdu.polyclinic.constant.GET_MAIN_MENU_COMMAND
 import ru.kotlinUrfuEdu.polyclinic.constant.START_COMMAND
+import ru.kotlinUrfuEdu.polyclinic.service.TgBotService
 
 
 @Slf4j
 @Component
-class TelegramBot (private val config: BotConfig) : TelegramLongPollingBot()
+class TelegramBot (): TelegramLongPollingBot()
 {
-    private final val menuCommands = listOf<BotCommand>(
+    private final val menuCommands = listOf(
         BotCommand(START_COMMAND, "start bot"),
         BotCommand(GET_MAIN_MENU_COMMAND, "main menu")
     )
-
+    private lateinit var config: BotConfig
     private var logger  = LoggerFactory.getLogger(this::class.java)
+    private lateinit var tgBotService: TgBotService
+
+    @Autowired
+    constructor(config: BotConfig, tgBotService: TgBotService) : this() {
+        this.config = config
+        this.tgBotService = tgBotService
+    }
+
 
     init {
         try
@@ -43,7 +53,8 @@ class TelegramBot (private val config: BotConfig) : TelegramLongPollingBot()
 
     override fun onUpdateReceived(update: Update?)
     {
-        TODO("Not yet implemented")
+        val backMessage = tgBotService.getAnswer(update)
+        sendMessage(backMessage)
     }
 
     fun sendMessage(message: SendMessage?) {
