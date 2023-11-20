@@ -61,7 +61,8 @@ class TgBotService
     }
 
 
-    private fun processRequest(command: String, userId: Long, chatId: Long, data: Map<String, Any>): SendMessage {
+    private fun processRequest(command: String, userId: Long, chatId: Long, data: Map<String, Any>): SendMessage
+    {
         return null
     }
 }
