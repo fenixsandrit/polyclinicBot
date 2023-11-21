@@ -30,13 +30,15 @@ class TelegramBot (): TelegramLongPollingBot()
     private lateinit var tgBotService: TgBotService
 
     @Autowired
-    constructor(config: BotConfig, tgBotService: TgBotService) : this() {
+    constructor(config: BotConfig, tgBotService: TgBotService) : this()
+    {
         this.config = config
         this.tgBotService = tgBotService
     }
 
 
-    init {
+    init
+    {
         try
         {
             execute(SetMyCommands(menuCommands, BotCommandScopeDefault(), null))
@@ -51,13 +53,14 @@ class TelegramBot (): TelegramLongPollingBot()
 
     override fun getBotUsername(): String = config.botName
 
-    override fun onUpdateReceived(update: Update?)
+    override fun onUpdateReceived(update: Update)
     {
         val backMessage = tgBotService.getAnswer(update)
         sendMessage(backMessage)
     }
 
-    fun sendMessage(message: SendMessage?) {
+    fun sendMessage(message: SendMessage?)
+    {
         try
         {
             execute(message)
