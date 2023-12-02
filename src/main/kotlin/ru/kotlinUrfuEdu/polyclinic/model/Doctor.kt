@@ -5,26 +5,22 @@ import lombok.Data
 
 @Data
 @Entity(name = "doctor")
-class Doctor()
-{
+class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private var id: Long? = null
+    var id: Long? = null
 
     @Column
-    private var firstName: String? = null
+    var firstName: String? = null
 
     @Column
-    private var secondName: String? = null
+    var secondName: String? = null
 
     @Column
-    private var type: String? = null
+    var type: String? = null
 
     @Column
-    private var age: Long? = null
+    var age: Long? = null
 
-    constructor(id: Long?) : this()
-    {
-        this.id = id
-    }
+
 }
