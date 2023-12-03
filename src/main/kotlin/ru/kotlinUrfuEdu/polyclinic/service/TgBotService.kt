@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Update
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup
-import ru.kotlinUrfuEdu.polyclinic.config.BOT_INFO
 import ru.kotlinUrfuEdu.polyclinic.constant.*
 import ru.kotlinUrfuEdu.polyclinic.model.Appointment
 import ru.kotlinUrfuEdu.polyclinic.model.Doctor
@@ -60,7 +59,7 @@ class TgBotService
                 {
                     command = data.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
                 }
-                message = processRequest(command!!, userId, chatId, java.util.Map.of<String, Any?>("data", data))
+                message = processRequest(command, userId, chatId, java.util.Map.of<String, Any?>("data", data))
             }
         }
         else if (update.hasCallbackQuery())
@@ -203,7 +202,7 @@ class TgBotService
     {
         val message = SendMessage()
         message.chatId = chatId.toString()
-        message.text = BOT_INFO
+        message.text = "Бот записывает вас на прием к врачу";
 
         return message
     }

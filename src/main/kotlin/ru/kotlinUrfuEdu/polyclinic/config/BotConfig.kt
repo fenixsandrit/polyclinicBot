@@ -15,5 +15,5 @@ class BotConfig
     lateinit var token: String
 }
 
-const val BOT_INFO = "Бот записывает вас на прием к врачу";
+
 

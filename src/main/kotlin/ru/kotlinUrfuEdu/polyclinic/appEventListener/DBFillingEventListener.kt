@@ -21,7 +21,7 @@ class DBFillingEventListener @Autowired constructor(private var appointmentsRepo
     {
         println("Handling context refreshed event.")
 
-        val firstName = "Марья"
+        /*val firstName = "Марья"
         val secondName = "Ивановна"
         val doctors: Array<String> = DOCTOR_TYPES
         var counter = 0
@@ -55,6 +55,6 @@ class DBFillingEventListener @Autowired constructor(private var appointmentsRepo
                 a3.time = (Time(10, 30, 0))
                 appointmentsRepo.save(a3)
             }
-        }
+        }*/
     }
 }
