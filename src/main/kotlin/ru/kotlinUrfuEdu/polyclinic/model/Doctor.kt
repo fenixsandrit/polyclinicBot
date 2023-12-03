@@ -5,7 +5,8 @@ import lombok.Data
 
 @Data
 @Entity(name = "doctor")
-class Doctor {
+class Doctor
+{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     var id: Long? = null
@@ -21,6 +22,4 @@ class Doctor {
 
     @Column
     var age: Long? = null
-
-
 }

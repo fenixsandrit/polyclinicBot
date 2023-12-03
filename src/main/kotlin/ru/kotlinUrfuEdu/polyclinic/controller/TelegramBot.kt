@@ -16,7 +16,6 @@ import ru.kotlinUrfuEdu.polyclinic.constant.GET_MAIN_MENU_COMMAND
 import ru.kotlinUrfuEdu.polyclinic.constant.START_COMMAND
 import ru.kotlinUrfuEdu.polyclinic.service.TgBotService
 
-
 @Slf4j
 @Component
 class TelegramBot (): TelegramLongPollingBot()
@@ -35,7 +34,6 @@ class TelegramBot (): TelegramLongPollingBot()
         this.config = config
         this.tgBotService = tgBotService
     }
-
 
     init
     {

@@ -22,6 +22,9 @@ class Appointment
     @Column
     var busy = false
 
+    @Column
+    var confirmed = false
+
     @Basic
     @Temporal(TemporalType.DATE)
     var date: Date? = null

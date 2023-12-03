@@ -10,16 +10,16 @@ import lombok.Data
 class Patient()
 {
     @Id
-    private var id: Long? = null
+    var id: Long? = null
 
     @Column
-    private var firstName: String? = null
+    var firstName: String? = null
 
     @Column
-    private var secondName: String? = null
+    var secondName: String? = null
 
     @Column
-    private var age: Int? = null
+    var age: Int? = null
 
     constructor(id: Long?) : this()
     {
